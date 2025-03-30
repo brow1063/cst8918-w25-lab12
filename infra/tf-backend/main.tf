@@ -17,7 +17,7 @@ provider "azurerm" {
 variable "college_id" {
   description = "Your college ID used for naming resources"
   type        = string
-  default     = "wair0001"
+  default     = "wair00001"
 }
 
 variable "location" {
