@@ -1,9 +1,3 @@
-variable "resource_prefix" {
-  description = "A prefix to add to all resources"
-  type        = string
-  default     = "wair0001"
-}
-
 resource "azurerm_resource_group" "rg" {
   name     = "${var.resource_prefix}-a12-rg"
   location = "westus3"
@@ -22,9 +16,4 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.1.0/24"]
-}
-
-output "resource_group_name" {
-  description = "Name of the Azure Resource Group"
-  value       = azurerm_resource_group.rg.name
 }
