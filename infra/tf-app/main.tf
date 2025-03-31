@@ -9,6 +9,7 @@ resource "azurerm_resource_group" "rg" {
   location = "westus3"
 }
 
+
 resource "azurerm_virtual_network" "vnet" {
   name                = "${var.resource_prefix}-a12-vnet"
   location            = azurerm_resource_group.rg.location
@@ -21,4 +22,7 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.1.0/24"]
+
+output "resource_group_name" {
+  value       = azurerm_resource_group.rg.name
 }
